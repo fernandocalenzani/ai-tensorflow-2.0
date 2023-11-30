@@ -9,6 +9,8 @@ tensorflow = "*"
 numpy = "*"
 matplotlib = "*"
 tqdm = "*"
+pandas = "*"
+yfinance = "*"
 
 [dev-packages]
 

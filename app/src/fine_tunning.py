@@ -6,24 +6,26 @@ import tensorflow as tf
 from tqdm import tqdm_notebook
 
 # config
-
+img_shape = (128, 128, 3)
+fine_tunning_at = 100
 dataset_path = "app/data/cats_and_dogs_filtered"
 train_dir = os.path.join(dataset_path, "train")
 validation_dir = os.path.join(dataset_path, "validation")
-
 
 # dataset
 dataGenerator = tf.keras.preprocessing.image.ImageDataGenerator
 
 # build model
-
-img_shape = (128, 128, 3)
-
 base_model = tf.keras.applications.MobileNetV2(
     input_shape=img_shape, include_top=False, weights="imagenet")
 
 # Base model
-base_model.trainable = False
+base_model.trainable = True
+print(len(base_model.layers))
+
+# congelando as camadas 0 a fine_tunning_at
+for layer in base_model.layers[:fine_tunning_at]:
+  layer.trainable = False
 
 global_average_layer = tf.keras.layers.GlobalAveragePooling2D()(base_model.output)
 
