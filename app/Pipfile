@@ -14,6 +14,7 @@ yfinance = "*"
 scipy = "*"
 pillow = "*"
 flask = "*"
+tensorflow-serving-api = "*"
 
 [dev-packages]
 
