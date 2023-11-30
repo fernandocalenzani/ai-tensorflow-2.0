@@ -11,6 +11,9 @@ matplotlib = "*"
 tqdm = "*"
 pandas = "*"
 yfinance = "*"
+scipy = "*"
+pillow = "*"
+flask = "*"
 
 [dev-packages]
 
